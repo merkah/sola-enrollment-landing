@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enrollment Strategy — SOLA Parent Council</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --forest: #2D4A22;
+  --gold:   #C4922A;
+  --cream:  #F8F5EE;
+  --ink:    #1F2A18;
+  --muted:  #6B6458;
+  --header: 'Cormorant Garamond', Georgia, serif;
+  --body:   'Lato', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* Section spacing */
+section { padding: 6rem 0; }
+section + section { padding-top: 0; }
+
+
+/* ════════════════════════════════════
+   HERO
+════════════════════════════════════ */
+.hero {
+  background: var(--forest);
+  padding: 5rem 2.5rem 4.5rem;
+  text-align: center;
+}
+
+.hero-ornament { margin-bottom: 2rem; }
+
+.hero h1 {
+  font-family: var(--header);
+  font-style: italic;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  color: var(--cream);
+  line-height: 1.1;
+  margin-bottom: 0.9rem;
+}
+
+.hero-sub {
+  font-size: 0.92rem;
+  color: rgba(248,245,238,0.55);
+  max-width: 44ch;
+  margin: 0 auto;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+
+/* ════════════════════════════════════
+   INTENTION
+════════════════════════════════════ */
+.intention {
+  padding: 5.5rem 0 4rem;
+}
+
+.sec-title {
+  font-family: var(--header);
+  font-style: italic;
+  font-size: clamp(1.75rem, 3vw, 2.3rem);
+  color: var(--forest);
+  line-height: 1.1;
+  margin-bottom: 1.6rem;
+}
+
+.intention-lede {
+  font-family: var(--header);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.intention-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 1.8rem;
+}
+
+.intention-cols p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.intention-ornament {
+  display: flex;
+  justify-content: center;
+  padding: 3.5rem 0 0;
+}
+
+
+/* ════════════════════════════════════
+   FIVE INITIATIVES
+════════════════════════════════════ */
+.initiatives {
+  padding: 4rem 0 5.5rem;
+}
+
+.sec-lead {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 2.8rem;
+}
+
+.layers-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.phase-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.layers-sub {
+  display: grid;
+  gap: 1rem;
+}
+
+.layers-sub--3 { grid-template-columns: repeat(3, 1fr); }
+.layers-sub--2 { grid-template-columns: repeat(2, 1fr); }
+
+.work-phase-break {
+  padding: 1.6rem 0 0.4rem;
+}
+
+.layer-tile {
+  background: rgba(45,74,34,0.04);
+  border: 1px solid rgba(45,74,34,0.1);
+  border-radius: 6px;
+  padding: 1.4rem 1.1rem 1.5rem;
+}
+
+.layer-num {
+  font-family: var(--header);
+  font-style: italic;
+  font-size: 2rem;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+.layer-name {
+  font-family: var(--header);
+  font-style: italic;
+  font-size: 1.18rem;
+  color: var(--forest);
+  display: block;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+.layer-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+
+/* ════════════════════════════════════
+   WHAT GETS DONE
+════════════════════════════════════ */
+.work {
+  padding: 3rem 0 5.5rem;
+  border-top: 1px solid rgba(45,74,34,0.08);
+}
+
+.work-block {
+  padding: 2.2rem 0;
+  border-bottom: 1px solid rgba(45,74,34,0.07);
+}
+
+.work-block:last-child { border-bottom: none; }
+
+.work-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.work-meta {}
+
+.work-label {
+  font-family: var(--header);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--forest);
+  display: block;
+  line-height: 1.2;
+  margin-bottom: 0.35rem;
+}
+
+.work-meta p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.work-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.work-items li {
+  font-size: 0.875rem;
+  color: var(--ink);
+  line-height: 1.5;
+  padding: 0.28rem 0 0.28rem 1.1rem;
+  position: relative;
+  border-bottom: 1px solid rgba(45,74,34,0.05);
+}
+
+.work-items li:last-child { border-bottom: none; }
+
+.work-items li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72rem;
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+
+/* ════════════════════════════════════
+   SEQUENCE
+════════════════════════════════════ */
+.sequence {
+  padding: 4.5rem 0 5.5rem;
+  border-top: 1px solid rgba(45,74,34,0.08);
+}
+
+.seq-lead {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 2.8rem;
+}
+
+.seq-track {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Horizontal dashed connector SVG — sits behind the circles */
+.seq-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+
+.tl-station {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  padding: 0 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tl-dot {
+  flex-shrink: 0;
+  margin-bottom: 0.65rem;
+}
+
+.tl-content {}
+
+.tl-name {
+  font-family: var(--header);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--forest);
+  display: block;
+  line-height: 1.2;
+  margin-bottom: 0.2em;
+}
+
+.tl-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+
+/* ════════════════════════════════════
+   CLOSING
+════════════════════════════════════ */
+.closing {
+  background: var(--forest);
+  padding: 5rem 2.5rem 4.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.closing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(196,146,42,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.closing p {
+  font-size: 0.97rem;
+  color: rgba(248,245,238,0.65);
+  max-width: 46ch;
+  margin: 0 auto 1.1em;
+  line-height: 1.65;
+  position: relative;
+}
+
+.closing-line {
+  font-family: var(--header);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--gold);
+  display: block;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.closing-mark {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(248,245,238,0.2);
+  display: block;
+  margin-top: 2.8rem;
+  position: relative;
+}
+
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 780px) {
+  .layers-sub--3 { grid-template-columns: repeat(2, 1fr); }
+  .layers-sub--2 { grid-template-columns: repeat(2, 1fr); }
+  .work-layout {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .work-meta p { display: none; }
+}
+
+@media (max-width: 560px) {
+  .layers-sub--3, .layers-sub--2 { grid-template-columns: 1fr 1fr; }
+  .intention-cols { grid-template-columns: 1fr; gap: 1.4rem; }
+  /* Sequence: wrap to 3-up at narrow widths; hide connector line */
+  .seq-track { flex-wrap: wrap; }
+  .seq-line { display: none; }
+  .tl-station { flex: 0 0 33.33%; padding: 0 0.5rem 2rem; }
+}
+
+</style>
+</head>
+<body>
+
+
+<!-- ════════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-ornament" aria-hidden="true">
+    <svg width="24" height="28" viewBox="0 0 28 32">
+      <path d="M14,1 C18.8,1.2 26.5,6.5 26.8,14 C27.1,21.5 21,30 14,30.8 C7,31.6 1.2,23.5 1,16 C0.8,8.5 7.5,0.7 14,1 Z" fill="#C4922A"/>
+    </svg>
+  </div>
+  <h1>Helping more families<br>find SOLA</h1>
+  <p class="hero-sub">A zero-budget enrollment strategy — five concrete initiatives, no new tools, nothing about the school branding is changing.</p>
+</header>
+
+
+<!-- ════════════════════════════════════
+     INTENTION
+════════════════════════════════════ -->
+<section class="intention">
+  <div class="wrap">
+
+    <h2 class="sec-title">What this is — and isn't</h2>
+
+    <p class="intention-lede">A set of small, concrete initiatives to help more families find SOLA online — no new tools, no new budget, and nothing that changes the school itself. Think of it as a light "tending" of the path to SOLA.</p>
+
+    <div class="intention-cols">
+      <p>Making sure SOLA is easy to find for families who are already searching — tidying up the technical details that shape how search results see the school.</p>
+      <p>Creating something useful for families in the research phase — and a gentle way to stay connected until they're ready to take the next step.</p>
+    </div>
+
+    <div class="intention-ornament" aria-hidden="true">
+      <svg width="72" height="16" viewBox="0 0 72 16">
+        <path d="M4,8 C4,5.1 5.8,2.9 8.1,3 C10.4,3.1 12,5.3 12,8 C12,10.8 10.1,12.9 7.9,12.8 C5.6,12.7 4,10.8 4,8 Z" fill="#C4922A"/>
+        <path d="M30,7.6 C30.3,4.9 32.1,2.8 34.2,3 C36.3,3.2 37.8,5.5 37.5,8.3 C37.2,11 35.3,13 33.3,12.8 C31.2,12.6 29.7,10.2 30,7.6 Z" fill="#C4922A"/>
+        <path d="M58,8.3 C57.7,5.5 59.6,3.1 61.7,3 C63.8,2.9 65.6,5.2 65.5,8 C65.4,10.8 63.5,13 61.4,12.9 C59.3,12.8 58.2,11 58,8.3 Z" fill="#C4922A"/>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     FIVE INITIATIVES
+════════════════════════════════════ -->
+<section class="initiatives">
+  <div class="wrap">
+
+    <h2 class="sec-title">Five layers of work</h2>
+    <p class="sec-lead">Each builds on the one before it.</p>
+
+    <div class="layers-groups">
+
+      <div>
+        <span class="phase-label">Quick wins</span>
+        <div class="layers-sub layers-sub--3">
+
+          <div class="layer-tile">
+            <span class="layer-num">1</span>
+            <span class="layer-name">Foundation</span>
+            <span class="layer-desc">Make the site findable</span>
+          </div>
+
+          <div class="layer-tile">
+            <span class="layer-num">2</span>
+            <span class="layer-name">Capture</span>
+            <span class="layer-desc">Invite deeper curiosity</span>
+          </div>
+
+          <div class="layer-tile">
+            <span class="layer-num">3</span>
+            <span class="layer-name">Conversion</span>
+            <span class="layer-desc">Shorten the path to enrollment</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <span class="phase-label">Long-term plan</span>
+        <div class="layers-sub layers-sub--2">
+
+          <div class="layer-tile">
+            <span class="layer-num">4</span>
+            <span class="layer-name">Content</span>
+            <span class="layer-desc">Answer real parent questions</span>
+          </div>
+
+          <div class="layer-tile">
+            <span class="layer-num">5</span>
+            <span class="layer-name">Amplification</span>
+            <span class="layer-desc">Let families carry the word</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <p class="sec-lead" style="margin-top: 1.5rem; margin-bottom: 0;">The goal is to increase traffic, email signups and application submissions without compromising on quality.</p>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     WHAT GETS DONE
+════════════════════════════════════ -->
+<section class="work">
+  <div class="wrap">
+
+    <h2 class="sec-title" style="margin-bottom: 0.5rem;">What gets done</h2>
+    <span class="phase-label" style="margin-bottom: 0; margin-top: 0.4rem;">Quick wins</span>
+
+    <!-- Foundation -->
+    <div class="work-block">
+      <div class="work-layout">
+        <div class="work-meta">
+          <span class="work-label">Foundation</span>
+          <p>Technical groundwork. One-time work with lasting effect.</p>
+        </div>
+        <ul class="work-items">
+          <li>Meta descriptions and H1 cleanup across all pages</li>
+          <li>Waldorf-specific keyword integration</li>
+          <li>Structured data and schema markup</li>
+          <li>Google Business Profile optimized</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Capture -->
+    <div class="work-block">
+      <div class="work-layout">
+        <div class="work-meta">
+          <span class="work-label">Capture</span>
+          <p>One strong downloadable resource, paired with a simple email signup.</p>
+        </div>
+        <ul class="work-items">
+          <li>A parent's guide to whether Waldorf is the right fit</li>
+          <li>Or: a visual day-in-the-life of a SOLA morning</li>
+          <li>Or: a Waldorf homeschool starter kit</li>
+          <li>Email capture + 3-part welcome sequence</li>
+          <li>Clear "Schedule a Visit" invitation at the right moment</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Conversion -->
+    <div class="work-block">
+      <div class="work-layout">
+        <div class="work-meta">
+          <span class="work-label">Conversion</span>
+          <p>Walk the website user experience as a first-time parent. See where we can make it easy for them to make contact and stay in touch. Probably the fastest win on this list.</p>
+        </div>
+        <ul class="work-items">
+          <li>Audit the current inquiry flow end to end</li>
+          <li>Add a short contact form for first conversations — ask only what's needed upfront</li>
+          <li>Light design clean up on the Program Application page forms</li>
+          <li>Add "Schedule a Visit" across high-traffic pages</li>
+          <li>Warm confirmation email on every inquiry submitted</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Long-term break -->
+    <div class="work-phase-break">
+      <span class="phase-label" style="margin-bottom: 0;">Long-term plan</span>
+    </div>
+
+    <!-- Content -->
+    <div class="work-block">
+      <div class="work-layout">
+        <div class="work-meta">
+          <span class="work-label">Content</span>
+          <p>Writing that shows up when parents are searching for alternatives. Compounds over 3–6 months.</p>
+        </div>
+        <ul class="work-items">
+          <li>Deep evergreen articles on Waldorf education in Asheville</li>
+          <li>Shorter posts for seasonal topics and community questions</li>
+          <li>Targets searches like "homeschool co-ops NC," "is Waldorf right for my child"</li>
+          <li>1–2 pieces per month, built to last for years</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Amplification -->
+    <div class="work-block">
+      <div class="work-layout">
+        <div class="work-meta">
+          <span class="work-label">Amplification</span>
+          <p>The families already here are SOLA's most credible voices. Coordinate what happens naturally.</p>
+        </div>
+        <ul class="work-items">
+          <li>Testimonials and family stories</li>
+          <li>Direct, warm referral ask</li>
+          <li>Google review push</li>
+          <li>Partnerships with local parenting and homeschool networks</li>
+          <li>Open houses tied to the seasonal festival calendar</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     WHO Does The Work 
+════════════════════════════════════ -->
+<section class="sequence">
+  <div class="wrap">
+
+    <h2 class="sec-title">Who Does it</h2>
+    <p class="seq-lead">I can do all of the technical work, but we'll need to collaborate on the writing and content as I know we do not want to use ai writing. 
+    </p>
+
+    
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     CLOSING
+════════════════════════════════════ -->
+<footer class="closing">
+
+  <span class="closing-line">This work is only about making the school easier to find for families who are already looking — and making it easier for them to take the next step when they're read
+  <span class="closing-mark">Prepared for the SOLA Parent Council</span>
+</footer>
+
+
+</body>
+</html>
